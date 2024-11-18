@@ -1,0 +1,10 @@
+{
+  "author": "big0",
+  "description": "voglio creare un cli che permette di utilizzare la completition di openia su tutta la codebase di un progetto. in questo modo lo sviluppatore potrà sviluppare utilizzando prompt linguistici che non sono strettamente correlati al linguaggio di programmazione, rendendo il coding molto piu accessibile. il concetto di base è che isy (il nome del progetto) crearà un context che comprenderà tutti i file specificati dall'utente e tramite structured output potrà modifica, creare, eliminare file con un interazione completa dell'os",
+  "files": [
+    ".go"
+  ],
+  "language_and_framework": "golang",
+  "project_name": "test",
+  "api_key": "sk-LbypU0I_e0PX2A_1TvOZUqd1Tz-0jYoG3TNQ_5lwnFT3BlbkFJtm9_IRz1X2_f-3bv5qNrSGXjeEyaZrHS6zMdio3S4A"
+}

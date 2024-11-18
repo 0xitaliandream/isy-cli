@@ -1,0 +1,11 @@
+Isy run tramite il comando e l’entry point stabilito dall’utente easy Runner l’Environment e i file e avrà accesso completo ai file di log così da poter analizzare da solo quello che l’output mostra se ci sono errori di compilazione di esecuzione eccetera
+isy whitepaper
+isy comment
+
+Dopodiché dobbiamo capire come permettere all’utente di accettare o declinare il codice di easy tornare indietro e vedere tutti le modifiche fatte da easy nei vari step un po’ di tipo git
+
+
+Dopodiché dobbiamo rendere questo binario interpretabile e accessibile quindi esporlo tramite tramite EPI così che qualcuno può tranquillamente crearci un frontend sopra
+
+
+Inserire easy analytics che ti dice quante righe di codice sono state scritte da easy quanto tempo è stato risparmiato all’utente
