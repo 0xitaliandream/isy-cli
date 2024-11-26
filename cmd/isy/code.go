@@ -35,7 +35,6 @@ func CodeCommand() *cobra.Command {
 				}
 
 				if len(branches) == 0 {
-					fmt.Println("No previous branches found, creating a new branch.")
 				} else {
 					fmt.Println("Please select a branch to connect:")
 					for i, b := range branches[:min(3, len(branches))] {
@@ -53,6 +52,7 @@ func CodeCommand() *cobra.Command {
 			}
 
 			if selectedBranch == "" { // Nel caso non venga selezionato alcun branch esistente
+				fmt.Println("No previous branch found, creating a new virtual branch.")
 				hash, err := codeUtils.GenerateHash()
 				if err != nil {
 					fmt.Println("Error generating hash:", err)
@@ -81,14 +81,13 @@ func CodeCommand() *cobra.Command {
 					return
 				}
 			} else {
-				fmt.Println("No previous branch found, creating a new virtual branch.")
 				if err := codeUtils.CopyDir(".", tempDir); err != nil {
 					fmt.Println("Error copying project:", err)
 					return
 				}
 			}
 
-			fmt.Println("Working on branch:", selectedBranch)
+			fmt.Println("Working on branch:", tempDir)
 
 			// Inizializza il contesto
 			contextContent, err := context.BuildContext()

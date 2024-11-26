@@ -54,22 +54,22 @@ func InitProject() {
 	description, _ := reader.ReadString('\n')
 	description = strings.TrimSpace(description)
 
-	fmt.Println("Inserisci le estensioni dei file da includere (separate da spazi):")
-	extensionsInput, _ := reader.ReadString('\n')
-	extensions := strings.Fields(strings.TrimSpace(extensionsInput))
-
 	fmt.Println("Inserisci la tua OpenAI API Key:")
 	apiKey, _ := reader.ReadString('\n')
 	apiKey = strings.TrimSpace(apiKey)
 
+	fmt.Println("Inserisci la lingua con cui isy ti risponderà (it, en, ecc):")
+	language, _ := reader.ReadString('\n')
+	language = strings.TrimSpace(language)
+
 	// Aggiungi l'API key alla configurazione
 	config := &Config{
-		ProjectName:          projectName,
-		Author:               author,
-		LanguageAndFramework: languageAndFramework,
-		Description:          description,
-		Files:                extensions,
-		APIKey:               apiKey, // Salva l'API key
+		ProjectName:             projectName,
+		Author:                  author,
+		LanguageAndFramework:    languageAndFramework,
+		Description:             description,
+		APIKey:                  apiKey, // Salva l'API key
+		IaModelResponseLanguage: language,
 	}
 
 	// Salva la configurazione utilizzando SaveConfig
@@ -79,10 +79,17 @@ func InitProject() {
 		return
 	}
 
+	fmt.Print("Creazione del file .isycontext per specificare i file da includere nel contesto")
+	err = os.WriteFile(".isycontext", []byte("# Add your file patterns here\n"), 0644)
+	if err != nil {
+		fmt.Println("Errore durante la creazione del file .isycontext:", err)
+		return
+	}
+	fmt.Println("File .isycontext creato con successo. Puoi modificare il file per aggiungere le regex dei file da includere.")
+
 	fmt.Println("Progetto inizializzato con successo!")
 	fmt.Printf("Nome progetto: %s\n", projectName)
 	fmt.Printf("Autore: %s\n", author)
 	fmt.Printf("Linguaggio/Framework: %s\n", languageAndFramework)
 	fmt.Printf("Descrizione: %s\n", description)
-	fmt.Println("Estensioni configurate:", strings.Join(extensions, ", "))
 }

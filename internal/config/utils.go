@@ -8,12 +8,12 @@ import (
 
 // Config rappresenta la struttura del file di configurazione
 type Config struct {
-	ProjectName          string   `json:"project_name"`
-	Author               string   `json:"author"`
-	LanguageAndFramework string   `json:"language_and_framework"`
-	Description          string   `json:"description"`
-	Files                []string `json:"files"`
-	APIKey               string   `json:"api_key"` // Nuovo campo
+	ProjectName             string `json:"project_name"`
+	Author                  string `json:"author"`
+	LanguageAndFramework    string `json:"language_and_framework"`
+	Description             string `json:"description"`
+	APIKey                  string `json:"api_key"`                    // Nuovo campo
+	IaModelResponseLanguage string `json:"ia_model_response_language"` // Nuovo campo
 }
 
 // LoadConfig legge il file di configurazione e restituisce un oggetto Config
@@ -78,13 +78,18 @@ func UpdateConfig(updates map[string]interface{}) error {
 			if v, ok := value.(string); ok {
 				config.Description = v
 			}
-		case "files":
-			if v, ok := value.([]string); ok {
-				config.Files = v
+		case "api_key":
+			if v, ok := value.(string); ok {
+				config.APIKey = v
+			}
+		case "ia_model_response_language":
+			if v, ok := value.(string); ok {
+				config.IaModelResponseLanguage = v
 			}
 		}
-	}
 
-	// Salva le modifiche
-	return SaveConfig(config)
+		// Salva le modifiche
+		return SaveConfig(config)
+	}
+	return nil
 }
