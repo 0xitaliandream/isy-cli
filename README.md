@@ -28,3 +28,30 @@ ISY is an **AI-powered assistant** designed to support developers throughout the
 ### Local AI Integration
 
 * **LLM Integration:** Compatible with open-source local language models for improved privacy, flexibility, and control.
+
+
+
+# TODO Checkpoints
+
+* [ ] **LLM OpenSource**
+  Integrate open-source local language models for improved privacy and flexibility.
+* [ ] **ISY Analytics**
+  Implement analytics to track:
+  * Lines of code written by ISY.
+  * Time saved during development.
+  * Efficiency metrics for developers.
+* [ ] **ISY Run**
+  Finalize and test the execution environment setup:
+  * Ensure seamless integration of user-defined environments.
+  * Provide robust error logging and analysis capabilities.
+* [ ] **ISY Whitepaper**
+  Generate a whitepaper document that describes the whole codebase ideas.
+* [ ] **ISY Comment**
+  Add the ability to:
+  * Annotate and explain code changes made by ISY.
+  * Support developers with inline comments for improved understanding.
+* [ ] **ISY Code**
+  Enhance ISY’s ability to:
+  * Suggest and optimize code.
+  * Provide AI contribution markers for transparency.
+  * Maintain a robust versioning and review system.
